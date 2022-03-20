@@ -14,12 +14,16 @@ public class UnityChanController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Vertical의 범위 0 ~ 1
         float vertical = Input.GetAxis("Vertical");
 
+        // Sprint 범위 0 ~ 1
         float offset = 0.5f + Input.GetAxis("Sprint") * 0.5f;
 
+        // Mathf.Abs() 절대값 
         float moveParameter = Mathf.Abs(vertical * offset);
 
+        // 0 대기, 0.5 walk, 1 뛰는거
         animator.SetFloat("moveSpeed", moveParameter);
     }
 }
